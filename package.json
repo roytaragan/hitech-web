@@ -1,0 +1,19 @@
+{
+  "name": "hitech-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server -o index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roytaragan/hitech-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roytaragan/hitech-web/issues"
+  },
+  "homepage": "https://github.com/roytaragan/hitech-web#readme"
+}

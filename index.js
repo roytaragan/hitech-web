@@ -1,7 +1,7 @@
 function showUploadWidget() {
     cloudinary.openUploadWidget({
-       cloudName: "<cloud name>",
-       uploadPreset: "<upload preset>",
+       cloudName: "dmsawzoc6",
+       uploadPreset: "bwzsaydz",
        sources: [
            "local"
        ],

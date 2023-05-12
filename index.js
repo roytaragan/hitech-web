@@ -1,3 +1,48 @@
+const ENDPOINT_URL = 'https://eo5wh9exx1dmu02.m.pipedream.net/';
+const CALLBACK_URL = 'https://eojvi7dkd5nj831.m.pipedream.net/';
+
+const imageUrls = [];
+
+async function submit() {
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    let request = {
+        tune: {
+            name: subject, // man, woman or person
+            title: email,
+            branch: 'sd21',
+            prompt_attributes: [{
+                callback: `${CALLBACK_URL}?email=${email}`,
+                text: `seed=46
+                0:sks ${subject} hitting the drums in office, highly detailed face ,cinematic composition, beautiful lighting, sharp, details, hyper - detailed, hdr, 4 k, 8 k, bright light, pale sunrise, cinematic lighting, ultra realistic, highly detailed, depth of field, f/1.8, 85mm, medium shot, mid shot, ((bright soft diffused light)), volumetric fog, trending on instagram, trending on tumblr, HDR 4k, 8k
+                100:sks ${subject} playing guitar in office, highly detailed face ,cinematic composition, beautiful lighting, sharp, details, hyper - detailed, hdr, 4 k, 8 k, bright light, pale sunrise, cinematic lighting, ultra realistic, highly detailed, depth of field, f/1.8, 85mm, medium shot, mid shot, ((bright soft diffused light)), volumetric fog, trending on instagram, trending on tumblr, HDR 4k, 8k
+                200:sks ${subject} in a picture with a pregnant woman, in 21st century in 21st century,bright light, pale sunrise, cinematic lighting, ultra realistic,highly detailed, depth of field, f/1.8, 85mm, medium shot, mid shot, (professionally color graded), ((bright soft diffused light)), volumetric fog, trending on instagram, trending on tumblr, hdr 4k, 8k
+                300:sks ${subject} in an family picture with 2 babies, stunning living room in 21st century in 21st century, bright light, pale sunrise, cinematic lighting, ultra realistic,, highly detailed, depth of field, f/1.8, 85mm, medium shot, mid shot, (professionally color graded), ((bright soft diffused light)), volumetric fog, trending on instagram, trending on tumblr, hdr 4k, 8k
+                360:sks ${subject} in a family picture as an old man with his old wife his adult kids and 8 grandchildren , in 21st century in 21st century, bright light, pale sunrise, cinematic lighting, stunning living room, ultra realistic,,highly detailed, depth of field, f/1.8, 85mm, medium shot, mid shot, (professionally color graded), ((bright soft diffused light)), volumetric fog, trending on instagram, trending on tumblr, hdr 4k, 8k`
+            }],
+            image_urls: imageUrls
+        }
+    }
+
+    const response = await fetch(ENDPOINT_URL, {
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify(request)
+    });
+}
+function updateSubmitState() {
+    const submitBtn = document.getElementById('submitBtn');
+    const instruction = document.getElementById('instruction');
+    if (imageUrls.length < 4) {
+        submitBtn.disabled = true;
+        instruction.style.display = 'block';
+        submitBtn.classList.add('disabled');
+    } else {
+        submitBtn.disabled = false;
+        instruction.style.display = 'none';
+        submitBtn.classList.remove('disabled');
+    }
+}
 function showUploadWidget() {
     cloudinary.openUploadWidget({
        cloudName: "dmsawzoc6",
@@ -5,7 +50,6 @@ function showUploadWidget() {
        sources: [
            "local"
        ],
-       googleApiKey: "<image_search_google_api_key>",
        showAdvancedOptions: false,
        cropping: false,
        multiple: true,
@@ -37,6 +81,11 @@ function showUploadWidget() {
     }, (err, info) => {
             if (!err) {    
                 console.log("Upload Widget event:", info);
+                if (info.event === 'success') {
+                    imageUrls.push(info.info.secure_url);
+                }
+                
+                updateSubmitState();    
             }
             else {
                 console.error("Upload Widget error:", err);
@@ -44,7 +93,11 @@ function showUploadWidget() {
     });
 }
    
-
-document.getElementById("upload_widget").addEventListener("click", () => {
+updateSubmitState();
+document.getElementById('upload_widget').addEventListener('click', () => {
     showUploadWidget();
+}, false);
+
+document.getElementById('submitBtn').addEventListener('click', () => {
+    submit();
 }, false);

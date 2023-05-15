@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Hi-Tech</title>
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+    </script>
+    <style>
+        body {
+            padding: 15px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .video {
+            max-width: 400px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        video {
+            width: 100%;
+        }
+        #unmute-button {
+            position: absolute;
+            background-color: black;
+            border-radius: 100%;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            padding: 1px 0px 0 1px;
+            z-index: 2;
+        }
+        #unmute-button svg {
+            width: 20px;
+            height: 20px;
+        }
+        #share-button {
+            background-color: #2c4bbe;
+            width: 110px;
+            height: 110px;
+            border: 6px solid #ffffff;
+            border-radius: 100%;
+            padding: 0 5px 1px 0;
+            position: relative;
+            top: -46px;
+            outline: none;
+            cursor: pointer;
+        }
+        #share-button svg {
+            width: 50px;
+            height: 50px;
+        }
+        h1 {
+            text-align: center;
+            line-height: 1em;
+        }
+    </style>
+</head>
+    <body>
+        <div class="container">
+        <h1 dir="rtl">אני בהייטק!</h1>
+        <div class="video">
+            <button id="unmute-button">
+                <svg width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#ffffff" d="m214.39 701.25 154.99 348.75h92.102c17.18-0.011719 34.09-4.3086 49.191-12.512 15.102-8.1992 27.914-20.043 37.277-34.449 9.3633-14.406 14.98-30.926 16.348-48.055 1.3594-17.129-1.5742-34.324-8.543-50.035l-85.539-192.45h92.289c49.711 0.058594 97.363 19.832 132.52 54.984s54.926 82.805 54.984 132.52h75v-750h-75c-0.058594 49.711-19.832 97.367-54.984 132.52-35.152 35.152-82.805 54.926-132.52 54.984h-300c-29.836 0-58.453 11.852-79.551 32.949-21.098 21.098-32.949 49.715-32.949 79.551v150c0.082031 21.234 6.1758 42.008 17.57 59.926 11.391 17.918 27.625 32.246 46.816 41.324zm272.81 234.11c1.9141 4.2891 2.7227 8.9883 2.3594 13.668-0.36719 4.6836-1.8984 9.1992-4.4531 13.137-2.5586 3.9414-6.0586 7.1758-10.188 9.418-4.125 2.2422-8.7461 3.4141-13.441 3.4141h-43.352l-116.66-262.5h86.664zm-262.2-485.36c0-9.9453 3.9492-19.484 10.984-26.516 7.0312-7.0312 16.57-10.984 26.516-10.984h300c34.957 0.007812 69.562-6.9922 101.77-20.59 32.207-13.598 61.359-33.516 85.734-58.574v383.33c-24.375-25.059-53.527-44.977-85.734-58.574-32.203-13.598-66.809-20.598-101.77-20.59h-300c-9.9453 0-19.484-3.9531-26.516-10.984-7.0352-7.0312-10.984-16.57-10.984-26.516zm760.99 289.01-85.801-85.801 53.023-53.023 85.801 85.801zm-31.352-290.62-53.023-53.023 84.375-84.375 53.023 53.023zm-17.137 39.113h112.5v75h-112.5z"/>
+                </svg>    
+            </button>
+            <video id="video-element" width="100%" autoplay muted loop playsinline>
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <button id="share-button">
+            <svg width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" d="m432.1 788.67c-9.7656-9.7617-9.7656-25.594 0-35.355l596.39-596.39-885.09 272.34 206.25 206.25c4.6914 4.6875 7.3242 11.047 7.3242 17.676v332.33l135.99-135.99zm53.031-17.676 306.38 306.38 272.34-885.09zm341.96 360.77c-5.5391 18.008-28.25 23.648-41.574 10.328l-257.2-257.2-178.67 178.66c-15.746 15.75-42.676 4.5977-42.676-17.676v-382.33l-228.29-228.29c-13.32-13.32-7.6797-36.031 10.324-41.57l1020.5-314c8.6836-2.8633 18.625-0.84375 25.527 6.0625 6.9062 6.9062 8.9297 16.848 6.0664 25.527z"/>
+            </svg>               
+        </button>
+    </div>
+    <script>
+        const videoElement = document.getElementById("video-element");
+        const videoURL = getQueryParameter("videoURL");
+        if (videoURL) {
+            const source = document.createElement("source");
+            source.src = videoURL;
+            source.type = "video/mp4";
+            videoElement.appendChild(source);
+        } else {
+            videoElement.innerText = "No videoURL parameter provided.";
+        }
+
+        document.getElementById("unmute-button").addEventListener("click", () => {
+            videoElement.muted = false;
+        });
+
+        document.getElementById("share-button").addEventListener("click", async () => {
+            if (navigator.share && videoURL) {
+                try {
+                    await navigator.share({
+                        title: 'אני בהייטק!',
+                        url: videoURL
+                    });
+                    console.log("Video shared successfully");
+                } catch (error) {
+                    console.error("Error sharing video:", error);
+                }
+            } else {
+                alert("Sharing works only on mobile devices.");
+                console.warn("OS share functionality is not supported on this device/browser, or no videoURL provided.");
+            }
+        });
+    </script>
+    </body>
+</html>

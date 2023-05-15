@@ -65,6 +65,7 @@ function showUploadWidget() {
     cloudinary.openUploadWidget({
        cloudName: "dmsawzoc6",
        uploadPreset: "bwzsaydz",
+       resourceType: 'image',
        language: "en",
        maxFiles: 40,
        maxFileSize: 4000000,

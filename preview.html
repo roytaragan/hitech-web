@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <meta property="og:title" content="Hi-Tech">
-  
+  <meta property="og:image" content="https://yonibloch.co.il/thumb.jpg">
   <title>Hi-Tech</title>
     <script>
         function getQueryParameter(name) {
@@ -75,6 +75,15 @@
         }
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FRV1P9XN5C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FRV1P9XN5C');
+</script>
     <body>
         <div class="container">
         <h1 dir="rtl">אני בהייטק!</h1>
@@ -118,6 +127,7 @@
                     const blob = await videoPromise;
                     const shareableFile = new File([blob], 'my-hitech.mp4', { type: blob.type });
                     await navigator.share({
+                        title: 'אני בהייטק!',
                         files: [shareableFile]
                     });
                     console.log("Video shared successfully");

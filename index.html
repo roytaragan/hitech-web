@@ -2,36 +2,59 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <title>Hi-Tech</title>
 </head>
 <body>
-  
   <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-  <div id="main">
-    <h1>Hi-Tech</h1>
-    <div id="form">
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-      <label for="subject">I am a</label>
-      <select id="subject" name="subject">
-        <option value="man">Man</option>
-        <option value="woman">Woman</option>
-        <option value="person">Person</option>
-      </select>
-
-
-      <button id="upload_widget" class="cloudinary-button">Upload files</button>
-
-      <button id="submitBtn">Submit</button>
-      <div id="instruction">Please upload more than 4 images.</div>
-    </div>
-    <div id="thanks"  style="display:none">
-      <h2>Thanks!</h2>
-      <span>Your Scene will be sent to you shortly.</span>
-    </div>
+  <div id="mainContainer">
+    <div id="main">
+      <h1 dir="rtl">את/ה בהייטק.</h1>
+      <video class="looper" autoplay muted loop playsinline>
+        <source src="astriyoni.mp4" type="video/mp4">
+      </video>
+      <div id="form">
+        <div class="inputs">
+          <div class="input email">
+            <svg width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#ffffff">
+              <path d="m107.66 197.85v804.3h984.67v-804.3zm909.67 729.3h-834.67v-654.3h834.67z"/>
+              <path d="m649.5 677.62 285.94-203.85-43.5-61.086-266.44 189.94h-51l-266.44-189.94-43.5 61.086 285.94 203.85z"/>
+              </g>
+            </svg>         
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input gender">
+            <svg width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#ffffff" d="m600 1021c-30.051 0-58.352-11.699-79.551-32.949l-300.8-300.8c-110.1-110.1-121.95-286.3-27.102-401.15 53.602-64.898 129.1-102.85 212.6-106.8 70.102-3.3008 139.75 19 194.8 62.051 55.051-43.051 124-65.449 194.8-62.051 83.5 4 159.05 41.898 212.6 106.8 94.898 114.85 83 291.05-27.102 401.15l-300.8 300.8c-21.199 21.25-49.5 32.949-79.551 32.949zm-180.9-767.05c-3.4492 0-6.8984 0.050781-10.352 0.25-62.148 2.9492-118.4 31.25-158.35 79.648-70.551 85.398-60.75 217.35 22.301 300.35l300.8 300.8c14.148 14.148 38.898 14.148 53 0l300.85-300.8c83.051-83.051 92.801-214.95 22.301-300.35-40-48.398-96.199-76.699-158.35-79.648-61.25-3.1992-121.35 20.25-164.7 63.648-14.648 14.648-38.398 14.648-53.051 0-40.949-40.898-96.75-63.898-154.4-63.898z"/>
+            </svg>
+            <select id="subject" name="subject">
+              <option value="man">Man</option>
+              <option value="woman">Woman</option>
+              <option value="person">Person</option>
+            </select>
+          </div>
+        </div>
+        <button id="upload_widget" class="cloudinary-button">
+          <svg width="1200pt" height="1200pt" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+             <path d="m631.04 349.8c-4.0781-4.0898-8.9414-7.3203-14.297-9.5117-10.727-4.4336-22.766-4.4336-33.488 0-5.3555 2.1914-10.219 5.4219-14.297 9.5117l-219.23 219.23c-10.758 11.137-14.84 27.117-10.746 42.055 4.0938 14.934 15.758 26.602 30.695 30.691 14.93 4.0898 30.914 0.011719 42.055-10.746l144.43-144.43v376.45c0 15.668 8.3594 30.141 21.922 37.973 13.566 7.8281 30.281 7.8281 43.844 0 13.566-7.8281 21.922-22.305 21.922-37.973v-376.44l144.39 144.39v-0.011719c11.141 10.758 27.117 14.848 42.055 10.758 14.926-4.1016 26.59-15.77 30.695-30.691 4.0898-14.934 0-30.918-10.758-42.055z"/>
+             <path d="m1002.9 197.14c-106.86-106.86-251.73-166.96-402.86-167.14l-0.003906-0.003906c-151.17 0-296.14 60.055-403.05 166.95-106.89 106.89-166.95 251.88-166.95 403.05s60.055 296.14 166.95 403.05c106.89 106.89 251.88 166.95 403.05 166.95s296.15-60.055 403.05-166.95c106.89-106.89 166.95-251.88 166.95-403.05-0.17578-151.12-60.277-296-167.14-402.86zm-61.98 743.71c-90.414 90.422-213 141.29-340.87 141.43l-0.011719 0.011719c-127.91 0-250.59-50.812-341.04-141.27-90.453-90.453-141.27-213.12-141.27-341.04 0-127.93 50.812-250.6 141.27-341.04 90.453-90.453 213.12-141.27 341.04-141.27 127.93 0 250.6 50.812 341.04 141.27 90.449 90.453 141.27 213.12 141.27 341.04-0.14453 127.87-51.008 250.46-141.43 340.87z"/>
+            </g>
+           </svg>
+        </button>
+        <button id="submitBtn">SUBMIT</button>
+        <div id="instruction">Please upload more than 4 images.</div>
+      </div>
+      <div id="thanks" style="display:none">
+        <h2>Thanks!</h2>
+        <span>Your Scene will be sent to you shortly.</span>
+      </div>
+    </div> 
   </div> 
   <script src="index.js" type="text/javascript"></script>
 </body>

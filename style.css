@@ -1,49 +1,135 @@
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
 body {
-    background-color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: white;
+    background-color: #151B21;
+    font-family: 'Varela Round', sans-serif;
+    color: #151B21;
+    padding: 0;
+    margin: 0;
+    background: url('bg-noise.gif') repeat;
+}
+#mainContainer {
+  width: calc(100% - 40px);
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 #main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  padding: 30px 0;
+}
+h1 {
+  font-size: 3em;
+  margin: 0;
+}
+video.looper {
+  width: 100%;
+}
+#thanks, #form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+div.inputs {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-around;
+}
+div.input {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 12px 13px 12px 13px;
+  border: none;
+  border-radius: 3px;
+  background-color: #151b21;
+  display: flex;
+  gap: 8px;
+}
+div.input svg {
+  width: 20px;
+  height: 20px;
+}
+#main input, #main select, #main input:-internal-autofill-selected {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  background-color: #151b21;
+  color: white;
+  font-family: 'Varela Round', sans-serif;
+  border: none;
+  outline: none;
+}
+#main input:focus, #main select:focus {
+  outline: none;
+}
+#main input::placeholder {
+  color: #caccc6;
+}
+#main select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23777' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5em center;
+  background-size: 8px 10px;
+  padding-right: 1.5em;
+}
+select#subject {
+  width: 100%;
+}
+#main .cloudinary-button {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: none;
+  margin-top: 15px;
+  height: auto;
+}
+.cloudinary-button svg {
+  width: 70px;
+  height: 70px;
+}
+#main .cloudinary-button:hover {
+  box-shadow: none;
+}
+#submitBtn {
+  padding: 20px 40px;
+  margin: 10px 0 15px;
+  background-color: #5fa0d5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 1.2em;
+  font-family: 'Varela Round', sans-serif;
+}
 
-  #thanks, #form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  label {
-    margin-bottom: 0.5rem;
-  }
-
-  input,
-  select {
-    margin-bottom: 1rem;
-    width: 100%;
-    max-width: 300px;
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-
-  .cloudinary-button {
-    margin-bottom: 1rem; 
-  }
-
-  #submitBtn {
-    padding: 0.75rem;
-    margin-bottom: 1rem; 
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  #submitBtn.disabled {
-    background-color: lightgray;
-    pointer-events: none;
-  }
+#submitBtn.disabled {
+  background-color: lightgray;
+  pointer-events: none;
+  display: none;
+}

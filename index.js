@@ -64,24 +64,24 @@ function showUploadWidget() {
        defaultSource: "local",
        styles: {
            palette: {
-               window: "#000000",
-               sourceBg: "#000000",
-               windowBorder: "#8E9FBF",
-               tabIcon: "#FFFFFF",
-               inactiveTabIcon: "#8E9FBF",
-               menuIcons: "#2AD9FF",
-               link: "#08C0FF",
-               action: "#336BFF",
-               inProgress: "#00BFFF",
-               complete: "#33ff00",
-               error: "#EA2727",
+               window: "#ffffff",
+               sourceBg: "#ecebea",
+               windowBorder: "#aaaaaa",
+               tabIcon: "#aaaaaa",
+               inactiveTabIcon: "#aaaaaa",
+               menuIcons: "#5fa0d5",
+               link: "#5fa0d5",
+               action: "#5fa0d5",
+               inProgress: "#5fa0d5",
+               complete: "#5fd5a4",
+               error: "#d59e5f",
                textDark: "#000000",
-               textLight: "#FFFFFF"
+               textLight: "#ffffff"
            },
            fonts: {
                default: null,
-               "'Space Mono', monospace": {
-                   url: "https://fonts.googleapis.com/css?family=Space+Mono",
+               "'Varela Round', sans-serif": {
+                   url: "https://fonts.googleapis.com/css?family=Varela+Round",
                    active: true
                }
            }

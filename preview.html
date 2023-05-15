@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <meta og:title="Hi-Tech">
   <title>Hi-Tech</title>
     <script>
         function getQueryParameter(name) {
@@ -95,11 +96,13 @@
     <script>
         const videoElement = document.getElementById("video-element");
         const videoURL = getQueryParameter("videoURL");
+        let videoPromise;
         if (videoURL) {
             const source = document.createElement("source");
             source.src = videoURL;
             source.type = "video/mp4";
             videoElement.appendChild(source);
+            videoPromise = fetch(videoURL).then(res => res.blob());
         } else {
             videoElement.innerText = "No videoURL parameter provided.";
         }
@@ -111,9 +114,11 @@
         document.getElementById("share-button").addEventListener("click", async () => {
             if (navigator.share && videoURL) {
                 try {
+                    const blob = await videoPromise;
+                    const shareableFile = new File([blob], 'my-hitech.mp4', { type: blob.type });
                     await navigator.share({
                         title: 'אני בהייטק!',
-                        url: videoURL
+                        files: [shareableFile]
                     });
                     console.log("Video shared successfully");
                 } catch (error) {

@@ -128,10 +128,10 @@ select#subject {
   font-family: 'Varela Round', sans-serif;
 }
 
+
 #submitBtn.disabled {
   background-color: lightgray;
   pointer-events: none;
-  display: none;
 }
 
 .footer {
@@ -160,6 +160,6 @@ select#subject {
   font-size: 2em;
   margin-bottom: 10px;
 }
-#thanks span {
+#instruction, #thanks span {
   text-align: center;
 }

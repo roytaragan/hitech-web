@@ -34,23 +34,38 @@ async function submit() {
     document.getElementById('thanks').style.display = 'flex';
 
 }
+function isValidEmail(email) {
+    return RegExp(/[^\s@]+@[^\s@]+\.[^\s@]+/, "gi").test(email);
+}
 function updateSubmitState() {
+    const email = document.getElementById('email').value;
     const submitBtn = document.getElementById('submitBtn');
     const instruction = document.getElementById('instruction');
+
     if (imageUrls.length < 4) {
-        submitBtn.disabled = true;
+        submitBtn.style.display = 'none';
         instruction.style.display = 'block';
-        submitBtn.classList.add('disabled');
     } else {
-        submitBtn.disabled = false;
-        instruction.style.display = 'none';
+        submitBtn.style.display = 'block';
         submitBtn.classList.remove('disabled');
+
+        if (isValidEmail(email)) {
+            submitBtn.classList.remove('disabled');
+            submitBtn.disabled = false;
+            instruction.style.display = 'none';
+        } else {
+            instruction.textContent = 'Need an email address. We won\'t do anything bad with it!';
+            instruction.style.display = 'block';
+            submitBtn.classList.add('disabled');
+            submitBtn.disabled = true;
+        }
     }
 }
 function showUploadWidget() {
     cloudinary.openUploadWidget({
        cloudName: "dmsawzoc6",
        uploadPreset: "bwzsaydz",
+       language: "en",
        maxFiles: 40,
        maxFileSize: 4000000,
        sources: [
@@ -62,6 +77,13 @@ function showUploadWidget() {
        cropping: false,
        multiple: true,
        defaultSource: "local",
+       text: {
+        en: {
+            menu: {
+                files: ' '
+            }
+        }
+       },
        styles: {
            palette: {
                window: "#ffffff",
@@ -102,6 +124,7 @@ function showUploadWidget() {
 }
    
 updateSubmitState();
+
 document.getElementById('upload_widget').addEventListener('click', () => {
     showUploadWidget();
 }, false);
@@ -109,3 +132,7 @@ document.getElementById('upload_widget').addEventListener('click', () => {
 document.getElementById('submitBtn').addEventListener('click', () => {
     submit();
 }, false);
+
+document.getElementById('email').addEventListener('input', () => {
+    updateSubmitState();
+});

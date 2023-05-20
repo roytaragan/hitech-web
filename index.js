@@ -4,6 +4,8 @@ const CALLBACK_URL = 'https://eojvi7dkd5nj831.m.pipedream.net/';
 const imageUrls = [];
 
 async function submit() {
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.classList.add('disabled');
     const email = document.getElementById("email").value;
     const subject = document.getElementById("subject").value;
     const text = `seed=46
@@ -24,12 +26,17 @@ async function submit() {
             image_urls: imageUrls
         }
     }
-
-    const response = await fetch(ENDPOINT_URL, {
-        method: "POST",
-        mode: "cors",
-        body: JSON.stringify(request)
-    });
+    try { 
+        const response = await fetch(ENDPOINT_URL, {
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify(request)
+        });
+    } catch (e) {
+        console.error('Failed to submit request. Error:', e);
+    }
+    
+    submitBtn.style.display = 'none';
     document.getElementById('form').style.display = 'none';
     document.getElementById('thanks').style.display = 'flex';
 
